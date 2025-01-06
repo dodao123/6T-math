@@ -41,7 +41,7 @@ function AboutOur() {
         backgroundPosition: 'center',
       }}
     >
-      <div className="container mx-auto px-6 text-center">
+      <div className="container mx-auto px-12 text-center ">
         {/* Đường kẻ màu vàng */}
         <div className="w-4/5 mx-auto border-b-4 border-yellow-400 mb-8"></div>
 
@@ -55,14 +55,14 @@ function AboutOur() {
               <div
                 className={`w-24 h-24 flex items-center justify-center rounded-full ${item.bgColor}`}
               >
-                <span className="text-9xl">{item.icon}</span>
+                <span className="text-8xl">{item.icon}</span>
               </div>
 
               {/* Tiêu đề */}
               <h3 className="text-3xl font-semibold text-gray-800 mt-20">{item.title}</h3>
 
               {/* Mô tả */}
-              <p className="text-gray-600 mt-4 text-xl">{item.description}</p>
+              <p className="text-gray-600 mt-4 text-l">{item.description}</p>
             </div>
           ))}
         </div>

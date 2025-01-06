@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-const images = [
-  '/Banner/images (1).jpeg', // Đường dẫn chính xác từ thư mục public
-  '/Banner/images.jpeg',
+const images = [ // Đường dẫn chính xác từ thư mục public
+  '/Banner/pexels-francesco-ungaro-1525041.jpg',
+  '/Banner/pexels-maxfrancis-2246476.jpg',
+  '/Banner/pexels-baskincreativeco-1480807.jpg',
+  
   // Thêm các hình ảnh khác nếu cần
 ];
 

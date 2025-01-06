@@ -3,26 +3,26 @@ import React from 'react';
 const Introduction = () => {
   return (
     <section
-      className="bg-sky-50 py-16 md:py-28 relative overflow-hidden"
+      className="bg-sky-50 py-4 md:py-10 relative overflow-hidden"
       style={{
         backgroundImage: `url('https://png.pngtree.com/thumb_back/fh260/background/20210326/pngtree-light-blue-cute-striped-baby-blue-background-image_594858.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="container mx-auto px-4 max-w-9xl">
+      <div className="container scale-90 mx-auto px-4 max-w-9xl ">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Text Content */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-6 md:space-y-8 ">
             <h2 className="text-4xl md:text-5xl font-bold border-b-4 border-yellow-400 pb-2 inline-block">
               Về chúng tôi
             </h2>
 
             <div className="space-y-4 md:space-y-6">
-              <p className="text-gray-700 leading-relaxed text-xl md:text-2xl">
+              <p className="text-gray-700 leading-relaxed text-xl md:text-xl">
                 Câu lạc bộ 6T MATH tiền thân là lớp Toán của cô Xuân, từ những năm 2007 cô giáo đã dạy gia sư cho từng học sinh, sau đó Phụ huynh thành lập nhóm mời cô giáo dạy. CLB được thành lập với mong muốn truyền cảm hứng các môn học cho nhiều bạn trẻ, khơi dậy tiềm năng và giúp các con làm chủ kiến thức, làm chủ tư duy toán học, tư duy công nghệ và công ty tài chính cũng như tương lai của bản thân các con.
               </p>
-              <p className="text-gray-700 leading-relaxed text-xl md:text-2xl">
+              <p className="text-gray-700 leading-relaxed text-xl md:text-xl">
                 Giáo viên giảng dạy tại CLB gồm các thầy cô đến từ các trường có chất lượng và uy tín trên địa bàn Mỹ Đức, Ứng Hòa có chuyên môn giỏi với nhiều năm kinh nghiệm giảng dạy cho các bạn luyện thi điều kiện, luyện thi chuyên. Các thầy cô đều nhiệt tình, yêu trẻ, tận tâm và nhiệt huyết với nghề.
               </p>
             </div>
@@ -33,7 +33,7 @@ const Introduction = () => {
           </div>
 
           {/* Image Section - Desktop */}
-          <div className="hidden md:block relative w-[750px] h-[600px] left-10">
+          <div className="hidden md:block relative w-[750px] scale-95 h-[600px] left-0">
             <div className="absolute right-0 top-0 right-25 w-96 h-96 rounded-full border-4 border-dashed border-blue-200 p-2">
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqZ2ycbFPldbdvLUpxNMgjglmtg79QWqT8JQ&s"

@@ -94,71 +94,70 @@ const TeacherShowcase = () => {
               transition={{ duration: 0.5 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start"
             >
-
               {/* Text Content */}
-<div className="space-y-4 md:space-y-6">
-  <motion.h1 
-    className="text-3xl md:text-4xl font-bold text-white mt-6 md:mt-24"
-    initial={{ opacity: 0, x: -20 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ delay: 0.2 }}
-  >
-    Đội Ngũ Giảng Viên
-  </motion.h1>
-  
-  <motion.div
-    initial={{ opacity: 0, x: -20 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ delay: 0.3 }}
-    className="space-y-2"
-  >
-    <h2 className="text-xl md:text-2xl font-semibold text-white">
-      {teachers[currentIndex].name}
-    </h2>
-    <p className="text-base md:text-lg text-white/90">
-      {teachers[currentIndex].role}
-    </p>
-  </motion.div>
+              <div className="space-y-4 md:space-y-6">
+                <motion.h1 
+                  className="text-3xl md:text-4xl font-bold text-white mt-6 md:mt-24"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  Đội Ngũ Giảng Viên
+                </motion.h1>
+                
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 }}
+                  className="space-y-2"
+                >
+                  <h2 className="text-xl md:text-2xl font-semibold text-white">
+                    {teachers[currentIndex].name}
+                  </h2>
+                  <p className="text-base md:text-lg text-white/90">
+                    {teachers[currentIndex].role}
+                  </p>
+                </motion.div>
 
-  <motion.div
-    ref={descriptionRef}
-    className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 md:p-6 
-      max-h-[300px] md:max-h-[400px] overflow-y-auto
-      scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.4 }}
-  >
-    <p className="text-sm md:text-base text-white/90 whitespace-pre-line leading-relaxed">
-      {teachers[currentIndex].description}
-    </p>
-  </motion.div>
-</div>
+                <motion.div
+                  ref={descriptionRef}
+                  className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 md:p-6 
+                    max-h-[300px] md:max-h-[400px] overflow-y-auto
+                    scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <p className="text-sm md:text-base text-white/90 whitespace-pre-line leading-relaxed">
+                    {teachers[currentIndex].description}
+                  </p>
+                </motion.div>
+              </div>
 
-{/* Mobile Image (moved below Text Content) */}
-<motion.div
-  className="md:hidden relative mt-6"
-  initial={{ opacity: 0, scale: 0.9 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ delay: 0.3 }}
->
-  <div className="rounded-2xl overflow-hidden shadow-2xl">
-    <img
-      src={teachers[currentIndex].image}
-      alt={teachers[currentIndex].name}
-      className="w-full h-64 object-cover"
-    />
-  </div>
-</motion.div>
+              {/* Mobile Image */}
+              <motion.div
+                className="md:hidden relative mt-6"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="rounded-2xl overflow-hidden shadow-2xl">
+                  <img
+                    src={teachers[currentIndex].image}
+                    alt={teachers[currentIndex].name}
+                    className="w-full h-64 object-cover"
+                  />
+                </div>
+              </motion.div>
 
-              {/* Desktop Image (hidden on mobile) */}
+              {/* Desktop Image */}
               <motion.div
                 className="hidden md:block relative"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                <div className="rounded-2xl overflow-hidden mt-20 shadow-2xl">
+                <div className="rounded-2xl sc overflow-hidden mt-20 shadow-2xl">
                   <img
                     src={teachers[currentIndex].image}
                     alt={teachers[currentIndex].name}
@@ -169,14 +168,14 @@ const TeacherShowcase = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Dots */}
-          <div className="fixed md:absolute bottom-4 left-1/2 transform -translate-x-1/2 flex justify-center gap-3 bg-white/10 md:bg-transparent p-2 rounded-full">
+          {/* Navigation Dots - Hidden on mobile */}
+          <div className="hidden md:flex absolute bottom-4 left-1/2 transform -translate-x-1/2 justify-center gap-3 p-2 rounded-full">
             {teachers.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2.5 md:w-3 h-2.5 md:h-3 rounded-full transition-all duration-300 
-                ${index === currentIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/70'}`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 
+                  ${index === currentIndex ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/70'}`}
               />
             ))}
           </div>

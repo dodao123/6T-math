@@ -12,7 +12,7 @@ import NewsSection from './../components/News';
 
 function HomePage() {
     return (
-        <div className='bg-gray-50'>
+        <div className=' bg-gray-50 '>
             <Header />
             <Banner/>
             <AboutOur/>

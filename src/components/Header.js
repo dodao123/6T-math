@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronUp } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openSubmenuIndex, setOpenSubmenuIndex] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,6 +49,10 @@ const Header = () => {
     }
   ];
 
+  const toggleSubmenu = (index) => {
+    setOpenSubmenuIndex(openSubmenuIndex === index ? null : index);
+  };
+
   return (
     <>
       <header
@@ -58,13 +63,13 @@ const Header = () => {
           }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-center">
             {/* Logo Section */}
             <div className="flex items-center space-x-3">
               <img
                 src="/Logo.png"
                 alt="6T Math CLUB"
-                className="w-[120px] h-[120px] rounded-lg object-cover"
+                className="w-[75px] h-[75px] rounded-lg object-cover"
               />
               <div className="flex flex-col">
                 <h1 className="text-3xl font-bold">
@@ -77,7 +82,7 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8 ml-14">
               {menuItems.map((item, index) => (
                 <div key={index} className="relative group">
                   <a
@@ -133,28 +138,40 @@ const Header = () => {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40" 
+        <div className="lg:hidden fixed inset-0 bg-gray-100 z-40" 
              onClick={() => setIsMobileMenuOpen(false)} />
       )}
 
       {/* Mobile Navigation */}
       <div
-        className={`lg:hidden fixed top-[140px] left-0 right-0 bg-white shadow-lg 
-          transition-all duration-300 z-40 max-h-[calc(100vh-140px)] overflow-y-auto
+        className={`lg:hidden fixed top-[105px] left-0 right-0 bg-white shadow-lg 
+          transition-all duration-300 z-40 max-h-[calc(100vh-105px)] overflow-y-auto
           ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
       >
         <nav className="container mx-auto px-4 py-4">
           {menuItems.map((item, index) => (
             <div key={index} className="border-b border-gray-100 last:border-0">
-              <a
-                href={item.href}
-                className="block py-3 text-lg font-medium text-gray-700 hover:text-pink-500 
-                  transition-colors duration-200"
+              <div 
+                className="flex items-center justify-between py-3 cursor-pointer"
+                onClick={() => item.submenu && toggleSubmenu(index)}
               >
-                {item.title}
-              </a>
+                <a
+                  href={item.href}
+                  className="text-lg font-medium text-gray-700 hover:text-pink-500 
+                    transition-colors duration-200"
+                  onClick={(e) => item.submenu && e.preventDefault()}
+                >
+                  {item.title}
+                </a>
+                {item.submenu && (
+                  openSubmenuIndex === index ? 
+                    <ChevronUp className="w-5 h-5 text-gray-500" /> : 
+                    <ChevronDown className="w-5 h-5 text-gray-500" />
+                )}
+              </div>
               {item.submenu && (
-                <div className="pl-4 pb-3 space-y-2">
+                <div className={`pl-4 space-y-2 overflow-hidden transition-all duration-300
+                  ${openSubmenuIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
                   {item.submenu.map((subItem, subIndex) => (
                     <a
                       key={subIndex}

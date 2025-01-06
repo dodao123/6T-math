@@ -168,19 +168,19 @@ const CourseCarousel = () => {
   const slideWidth = containerWidth / visibleCount;
 
   return (
-    <div className="w-full max-w-[1536px] mx-auto px-6 py-16 mt-16">
+    <div className="w-full scale-90 max-w-[1536px] mx-auto px-6 py-16 mt-16">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-center space-y-6 mb-16"
+        className="text-center space-y-6 mb-16 "
         style={{
           backgroundImage: "linear-gradient(to right, lightblue, white)",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 tracking-tight scale-95">
           Các khóa học
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -196,7 +196,7 @@ const CourseCarousel = () => {
           onClick={prevSlide}
           disabled={!canScrollLeft}
           className={`absolute -left-4 md:-left-8 top-1/2 opacity-90 -translate-y-1/2 z-10 
-          ${canScrollLeft ? 'bg-white/90 hover:bg-white cursor-pointer' : 'bg-gray-100 cursor-not-allowed'}
+          ${canScrollLeft ? 'bg-white/90 hover:bg-white cursor-pointer scale-95' : 'bg-gray-100 cursor-not-allowed'}
           p-3 md:p-5 rounded-2xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform-gpu
           backdrop-blur-sm border border-gray-100 transition-all duration-300`}
         >

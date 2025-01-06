@@ -40,3 +40,7 @@ header img {
   height: 30px;
   
 }
+.shrink-25 {
+  transform: scale(0.75);
+  transform-origin: top left; /* Điều chỉnh điểm gốc để giữ vị trí hợp lý */
+}
