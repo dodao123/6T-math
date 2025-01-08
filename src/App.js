@@ -1,16 +1,24 @@
-// math-clb/src/App.js
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/HomePages';
-import ContactIcons from './components/Contact';
+import Introduction from './Pages/Introduction';
 
+import ContactIcons from './components/Statics/Contact';
+import Header from './components/Statics/Header';
+import Footer from './components/Statics/Footer';
 
 function App() {
     return (
         <Router>
             <div className="App">
-                <HomePage />
+                <Header/>
                 <ContactIcons />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/introduction" element={<Introduction />} />
+                    {/* Add more routes here as needed */}
+                </Routes>
+                <Footer/>
             </div>
         </Router>
     );

@@ -15,8 +15,8 @@ const Header = () => {
   }, []);
 
   const menuItems = [
-    { title: 'Trang Chủ', href: '#' },
-    { title: 'Giới Thiệu', href: '#' },
+    { title: 'Trang Chủ', href: '/' },
+    { title: 'Giới Thiệu', href: '/introduction' },
     { 
       title: 'Khóa Học',
       href: '#',
@@ -58,8 +58,8 @@ const Header = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
           ${isScrolled 
-            ? 'bg-slate-400 backdrop-blur-sm shadow-lg py-2' 
-            : 'bg-white py-4'
+            ? 'bg-slate-400 bg-opacity-60 backdrop-blur-sm shadow-lg py-2' 
+            : 'bg-white bg-opacity-60 py-4'
           }`}
       >
         <div className="container mx-auto px-4">
@@ -87,7 +87,7 @@ const Header = () => {
                 <div key={index} className="relative group">
                   <a
                     href={item.href}
-                    className="text-gray-700 font-medium hover:text-pink-500 py-2 transition-colors duration-200
+                    className="text-black font-medium hover:text-pink-500 py-2 transition-colors duration-200
                       relative after:content-[''] after:absolute after:left-0 after:bottom-0 text-xl
                       after:w-0 after:h-0.5 after:bg-pink-500 after:transition-all after:duration-300
                       hover:after:w-full group-hover:text-pink-500"
@@ -145,8 +145,8 @@ const Header = () => {
       {/* Mobile Navigation */}
       <div
         className={`lg:hidden fixed top-[105px] left-0 right-0 bg-white shadow-lg 
-          transition-all duration-300 z-40 max-h-[calc(100vh-105px)] overflow-y-auto
-          ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}
+          transition-all opacity-0 duration-300 z-40 max-h-[calc(100vh-105px)] overflow-y-auto
+          ${isMobileMenuOpen ?  'translate-y-0 opacity-100' : '-translate-y-full'}`}
       >
         <nav className="container mx-auto px-4 py-4">
           {menuItems.map((item, index) => (
