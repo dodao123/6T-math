@@ -103,7 +103,7 @@ const HeroSection = ({ scrollToNextSection }) => {
         </AnimatePresence>
 
         <ChevronDown 
-          className="absolute bottom-8  left-[746px] mt-[3px] transform -translate-x-1/2 w-12 h-12 text-purple-600 animate-bounce cursor-pointer"
+          className="absolute bottom-0  left-[746px] transform -translate-x-1/2 w-12 h-12 text-purple-600 animate-bounce cursor-pointer"
           onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         />
 
