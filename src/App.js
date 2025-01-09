@@ -6,6 +6,7 @@ import Introduction from './Pages/Introduction';
 import ContactIcons from './components/Statics/Contact';
 import Header from './components/Statics/Header';
 import Footer from './components/Statics/Footer';
+import  Contact  from './Pages/Contact';
 
 function App() {
     return (
@@ -16,6 +17,8 @@ function App() {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/introduction" element={<Introduction />} />
+                    <Route path="/contact" element={<Contact />} />
+                    
                     {/* Add more routes here as needed */}
                 </Routes>
                 <Footer/>

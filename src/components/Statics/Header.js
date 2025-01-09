@@ -38,7 +38,7 @@ const Header = () => {
         { title: 'Sách', href: '#' }
       ]
     },
-    { title: 'Liên Hệ', href: '#' },
+    { title: 'Liên Hệ', href: '/Contact' },
     {
       title: 'Khác',
       href: '#',
@@ -65,6 +65,7 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center">
             {/* Logo Section */}
+            <a href='/'>
             <div className="flex items-center space-x-3">
               <img
                 src="/Logo.png"
@@ -80,6 +81,7 @@ const Header = () => {
                 <p className="text-sm text-gray-600 font-medium">Khơi nguồn tri thức</p>
               </div>
             </div>
+            </a>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-8 ml-14">

@@ -6,6 +6,7 @@ const ManifestationsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  
 
   const timeline = [
     {
@@ -45,7 +46,8 @@ const ManifestationsSection = () => {
   }, []);
 
   return (
-    <section className="py-16 md:py-32 px-4 md:px-8 relative min-h-screen bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="py-16 md:py-32 px-4 md:px-8 relative min-h-screen bg-gradient-to-b from-white to-pink-100 overflow-hidden">
+
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute w-full h-full opacity-5" />
