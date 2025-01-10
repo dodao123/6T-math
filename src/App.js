@@ -7,6 +7,7 @@ import ContactIcons from './components/Statics/Contact';
 import Header from './components/Statics/Header';
 import Footer from './components/Statics/Footer';
 import  Contact  from './Pages/Contact';
+import CourseDetail from './Pages/CourseDetail';
 
 function App() {
     return (
@@ -18,7 +19,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/introduction" element={<Introduction />} />
                     <Route path="/contact" element={<Contact />} />
-                    
+                    <Route path="/course/:id" element={<CourseDetail />} /> {/* Thêm route cho khóa học */}
                     {/* Add more routes here as needed */}
                 </Routes>
                 <Footer/>

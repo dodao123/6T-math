@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Introduction = () => {
+
+const Review = () => {
   return (
     <section
       className="bg-sky-50 py-4 md:py-10 relative overflow-hidden"
@@ -14,9 +15,11 @@ const Introduction = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6 md:space-y-8 ">
-            <h2 className="text-4xl md:text-5xl font-bold border-b-4 border-yellow-400 pb-2 inline-block">
-              Về chúng tôi
-            </h2>
+            
+              <h2 className="text-4xl md:text-5xl font-bold border-b-4 border-yellow-400 pb-2 inline-block">
+                Về chúng tôi
+              </h2>
+            
 
             <div className="space-y-4 md:space-y-6">
               <p className="text-gray-700 leading-relaxed text-xl md:text-xl">
@@ -26,10 +29,12 @@ const Introduction = () => {
                 Giáo viên giảng dạy tại CLB gồm các thầy cô đến từ các trường có chất lượng và uy tín trên địa bàn Mỹ Đức, Ứng Hòa có chuyên môn giỏi với nhiều năm kinh nghiệm giảng dạy cho các bạn luyện thi điều kiện, luyện thi chuyên. Các thầy cô đều nhiệt tình, yêu trẻ, tận tâm và nhiệt huyết với nghề.
               </p>
             </div>
-
-            <button className="bg-yellow-400 border-4 border-dashed border-yellow-400 text-gray-900 px-6 md:px-8 py-2 md:py-3 rounded-md hover:bg-yellow-500 transition-colors text-lg md:text-xl font-semibold">
+            
+            <a href='/Introduction'>
+            <button className="bg-yellow-400 border-4 border-dashed border-yellow-400 text-gray-900 px-6 md:px-8 py-0 mt-10 md:py-3 rounded-md hover:bg-yellow-500 transition-colors text-lg md:text-xl font-semibold">
               Xem thêm
             </button>
+            </a>
           </div>
 
           {/* Image Section - Desktop */}
@@ -87,4 +92,4 @@ const Introduction = () => {
   );
 };
 
-export default Introduction;
+export default Review;

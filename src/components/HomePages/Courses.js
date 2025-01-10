@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const CourseCard = ({ title, description, color, id }) => {
   return (
-    <Link to={`/course/${id}`} className="block outline-none h-full">
+    <Link to={`/course/${id}`} className="block outline-none h-[90%] m-4 ">
       <motion.div
         whileHover={{ 
           scale: 1.03,

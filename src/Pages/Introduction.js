@@ -10,7 +10,7 @@ const Introduction = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen mt-4 overflow-hidden">
       <HeroSection scrollToNextSection={scrollToNextSection} />
       <ManifestationsSection />
     </div>

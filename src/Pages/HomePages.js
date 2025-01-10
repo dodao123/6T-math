@@ -3,12 +3,13 @@ import React from 'react';
 import Header from '../components/Statics/Header';
 import Banner from '../components/HomePages/Banner';
 import AboutOur from "../components/HomePages/AboutOur";
-import Introduction from '../components/HomePages/Introduction';
+import Review from '../components/HomePages/Review';
 import CourseCarousel from '../components/HomePages/Courses';
 import TeacherShowcase from '../components/HomePages/Teacher';
 import OutstandingStudents from '../components/HomePages/GoldBoarder';
 import Footer from '../components/Statics/Footer';
 import NewsSection from '../components/HomePages/News';
+
 
 function HomePage() {
     return (
@@ -16,7 +17,7 @@ function HomePage() {
             
             <Banner/>
             <AboutOur/>
-            <Introduction/>
+            <Review/>
             <CourseCarousel/>
             <TeacherShowcase/>
             <OutstandingStudents/>
