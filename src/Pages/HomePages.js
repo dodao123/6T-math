@@ -22,7 +22,6 @@ function HomePage() {
             <TeacherShowcase/>
             <OutstandingStudents/>
             <NewsSection/>
-            
             <main>
             </main>
         </div>
