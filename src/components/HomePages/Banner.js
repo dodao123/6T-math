@@ -156,7 +156,7 @@ const Banner = () => {
 
         {/* Scroll Indicator */}
         <ChevronDown 
-          className="absolute ml-[240px] bottom-8 left-1/3 transform -translate-x-1/2 w-12 h-12 text-white animate-bounce cursor-pointer"
+          className=" hidden sm:block  absolute ml-[240px] bottom-8 left-1/3 transform -translate-x-1/2 w-12 h-12 text-white animate-bounce cursor-pointer"
           onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
         />
       </div>

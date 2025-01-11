@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, BookOpen, Users, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -78,6 +78,11 @@ const CourseCarousel = () => {
   const [direction, setDirection] = useState(0);
   const [visibleCount, setVisibleCount] = useState(getInitialVisibleCount());
   const [containerWidth, setContainerWidth] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const carouselRef = useRef(null);
+  
 
   const courses = [
     {
@@ -136,17 +141,48 @@ const CourseCarousel = () => {
         Math.min(prev, Math.max(0, courses.length - newVisibleCount))
       );
       
-      // Update container width
       const container = document.querySelector('.carousel-container');
       if (container) {
         setContainerWidth(container.offsetWidth);
       }
     };
 
-    handleResize(); // Initial call
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [courses.length]);
+
+  // Touch handlers
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.touches[0].pageX);
+    setScrollLeft(currentIndex);
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+
+    e.preventDefault();
+    const x = e.touches[0].pageX;
+    const walk = (startX - x) / (containerWidth / visibleCount);
+    const newIndex = scrollLeft + walk;
+
+    // Prevent scrolling beyond boundaries with smooth resistance
+    if (newIndex < 0) {
+      setCurrentIndex(0);
+    } else if (newIndex > courses.length - visibleCount) {
+      setCurrentIndex(courses.length - visibleCount);
+    } else {
+      setCurrentIndex(newIndex);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+    // Snap to nearest index
+    const newIndex = Math.round(currentIndex);
+    setCurrentIndex(Math.max(0, Math.min(newIndex, courses.length - visibleCount)));
+  };
 
   const canScrollLeft = currentIndex > 0;
   const canScrollRight = currentIndex < courses.length - visibleCount;
@@ -154,14 +190,14 @@ const CourseCarousel = () => {
   const nextSlide = () => {
     if (canScrollRight) {
       setDirection(1);
-      setCurrentIndex(prev => prev + 1);
+      setCurrentIndex(prev => Math.min(prev + 1, courses.length - visibleCount));
     }
   };
 
   const prevSlide = () => {
     if (canScrollLeft) {
       setDirection(-1);
-      setCurrentIndex(prev => prev - 1);
+      setCurrentIndex(prev => Math.max(prev - 1, 0));
     }
   };
 
@@ -169,26 +205,6 @@ const CourseCarousel = () => {
 
   return (
     <div className="w-full scale-90 max-w-[1536px] mx-auto px-6 py-16 mt-16">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center space-y-6 mb-16 "
-        style={{
-          backgroundImage: "linear-gradient(to right, lightblue, white)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 tracking-tight scale-95">
-          Các khóa học
-        </h2>
-        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-          Khám phá các khóa học chất lượng cao, được thiết kế để giúp bạn đạt được mục tiêu học tập
-        </p>
-        <div className="h-1.5 w-24 bg-blue-500 mx-auto rounded-full"/>
-      </motion.div>
-      
       <div className="relative">
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -198,12 +214,19 @@ const CourseCarousel = () => {
           className={`absolute -left-4 md:-left-8 top-1/2 opacity-90 -translate-y-1/2 z-10 
           ${canScrollLeft ? 'bg-white/90 hover:bg-white cursor-pointer scale-95' : 'bg-gray-100 cursor-not-allowed'}
           p-3 md:p-5 rounded-2xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform-gpu
-          backdrop-blur-sm border border-gray-100 transition-all duration-300`}
+          backdrop-blur-sm border border-gray-100 transition-all duration-300
+          md:block hidden`} // Hide on mobile
         >
           <ChevronLeft size={28} className={canScrollLeft ? 'text-gray-700' : 'text-gray-400'} />
         </motion.button>
 
-        <div className="overflow-hidden carousel-container">
+        <div 
+          className="overflow-hidden carousel-container touch-pan-y"
+          ref={carouselRef}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <motion.div 
             className="flex"
             animate={{ 
@@ -215,7 +238,8 @@ const CourseCarousel = () => {
               damping: 20
             }}
             style={{
-              gap: '0rem'
+              gap: '0rem',
+              touchAction: 'pan-y pinch-zoom'
             }}
           >
             {courses.map((course, index) => (
@@ -245,7 +269,8 @@ const CourseCarousel = () => {
           className={`absolute -right-4 md:-right-8 top-1/2 opacity-90 -translate-y-1/2 z-10 
           ${canScrollRight ? 'bg-white/90 hover:bg-white cursor-pointer' : 'bg-gray-100 cursor-not-allowed'}
           p-3 md:p-5 rounded-2xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform-gpu
-          backdrop-blur-sm border border-gray-100 transition-all duration-300`}
+          backdrop-blur-sm border border-gray-100 transition-all duration-300
+          md:block hidden`} // Hide on mobile
         >
           <ChevronRight size={28} className={canScrollRight ? 'text-gray-700' : 'text-gray-400'} />
         </motion.button>
