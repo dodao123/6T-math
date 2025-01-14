@@ -6,10 +6,6 @@ const HeroSection = ({ scrollToNextSection }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-  
   const heroContent = [
     {
       title: "Câu Lạc Bộ 6T MATH",
@@ -44,7 +40,7 @@ const HeroSection = ({ scrollToNextSection }) => {
   ];
 
   return (
-    <section className="min-h-screen mt-7 relative overflow-hidden bg-gradient-to-b from-white to-white">
+    <section className="min-h-screen mt-7 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-full h-full bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 opacity-40" />
@@ -61,7 +57,7 @@ const HeroSection = ({ scrollToNextSection }) => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 scale-90 container mx-auto px-4 py-10 md:py-20 min-h-screen flex flex-col justify-center">
+      <div className="relative z-10 container mx-auto px-4 py-10 md:py-20 min-h-screen flex flex-col justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -71,7 +67,7 @@ const HeroSection = ({ scrollToNextSection }) => {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <div className="relative inline-block scale-90 mb-6">
+            <div className="relative inline-block mb-6">
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
@@ -102,12 +98,6 @@ const HeroSection = ({ scrollToNextSection }) => {
           </motion.div>
         </AnimatePresence>
 
-        <ChevronDown 
-          className="absolute bottom-0  left-[746px] transform -translate-x-1/2 w-12 h-12 text-purple-600 animate-bounce cursor-pointer"
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-        />
-
-
         {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -116,9 +106,7 @@ const HeroSection = ({ scrollToNextSection }) => {
           className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center mb-8 md:mb-16 px-4"
         >
           <button className="group relative px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold overflow-hidden w-full sm:w-auto">
-            <a href='/contact'>
             <span className="relative z-10">Đăng Ký Ngay</span>
-            </a>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <motion.div
               className="absolute inset-0 bg-white opacity-25"
@@ -165,8 +153,6 @@ const HeroSection = ({ scrollToNextSection }) => {
           />
         ))}
       </div>
-      
-      
     </section>
   );
 };

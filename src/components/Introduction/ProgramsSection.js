@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Star, Heart, BookOpen, Users, Award, Sparkles, GraduationCap, Coffee, Clock } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const ManifestationsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -43,6 +45,7 @@ const ManifestationsSection = () => {
 
   useEffect(() => {
     setIsVisible(true);
+    AOS.init();
   }, []);
 
   return (
@@ -134,21 +137,21 @@ const ManifestationsSection = () => {
         </motion.div>
 
         {/* Timeline */}
-        <div className="mb-12 md:mb-20">
+       {/* Timeline */}
+<div className="mb-12 md:mb-20">
   <div className="relative">
     {/* Vertical Line */}
     <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 transform md:-translate-x-1/2 bg-gradient-to-b from-purple-600 to-transparent" />
     
     <div className="relative flex flex-col">
       {timeline.map((item, index) => (
-        <motion.div
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
           key={index}
           className={`flex mb-12 md:mb-16 w-full ${
             index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'
           }`}
-          initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: index * 0.2 }}
         >
           <div className={`w-full md:w-[45%] flex ${
             index % 2 === 0 ? 'flex-row' : 'md:flex-row-reverse'
@@ -170,39 +173,40 @@ const ManifestationsSection = () => {
               <p className="text-gray-600">{item.description}</p>
             </div>
           </div>
-        </motion.div>
+        </div>
       ))}
     </div>
   </div>
 </div>
 
         {/* Inspirational Quotes */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-20">
-          {quotes.map((quote, index) => (
-            <motion.div
-              key={index}
-              className="p-8 bg-white rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-shadow duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-              <Sparkles className="w-8 h-8 text-purple-600 mb-4" />
-              <p className="text-lg italic text-gray-700">{quote}</p>
-            </motion.div>
-          ))}
-        </div>
+        {/* Inspirational Quotes */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-20">
+  {quotes.map((quote, index) => (
+    <div 
+      data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom"
+      key={index}
+      className="p-8 bg-white rounded-2xl shadow-lg relative overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+    >
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+      <Sparkles className="w-8 h-8 text-purple-600 mb-4" />
+      <p className="text-lg italic text-gray-700">{quote}</p>
+    </div>
+  ))}
+</div>
 
-        {/* Final Message */}
-        <motion.div
-          className="text-center max-w-3xl mx-auto"
-          style={{ opacity }}
-        >
-          <p className="text-xl leading-relaxed text-gray-700 mb-8">
-            Nhìn lại hành trình đã qua, tôi vô cùng tự hào khi thấy các con trưởng thành, không chỉ trong học tập mà còn trong tư duy và nhân cách. Đó chính là phần thưởng lớn nhất đối với tôi - một người giáo viên luôn tận tụy với ước mơ gieo mầm tri thức và dẫn dắt các thế hệ trẻ đi đến những chân trời mới.
-          </p>
-          <Heart className="w-12 h-12 text-red-500 mx-auto animate-pulse" />
-        </motion.div>
+       {/* Final Message */}
+<div 
+  data-aos="fade-up"
+  data-aos-anchor-placement="center-bottom"
+  className="text-center max-w-3xl mx-auto"
+>
+  <p className="text-xl leading-relaxed text-gray-700 mb-8">
+    Nhìn lại hành trình đã qua, tôi vô cùng tự hào khi thấy các con trưởng thành, không chỉ trong học tập mà còn trong tư duy và nhân cách. Đó chính là phần thưởng lớn nhất đối với tôi - một người giáo viên luôn tận tụy với ước mơ gieo mầm tri thức và dẫn dắt các thế hệ trẻ đi đến những chân trời mới.
+  </p>
+  <Heart className="w-12 h-12 text-red-500 mx-auto animate-pulse" />
+</div>
       </div>
     </section>
   );

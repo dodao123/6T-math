@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, BookOpen, Users, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CourseCard = ({ title, description, color, id }) => {
   return (
-    <Link to={`/course/${id}`} className="block outline-none h-[90%] m-4 ">
+    <Link to={`/course/${id}`} className="block outline-none h-[90%] m-4">
       <motion.div
         whileHover={{ 
           scale: 1.03,
@@ -13,6 +15,8 @@ const CourseCard = ({ title, description, color, id }) => {
           transition: { duration: 0.2 }
         }}
         className="h-full"
+        data-aos="fade-up"
+        data-aos-duration="800"
       >
         <div
           className={`${color} p-8 rounded-3xl shadow-xl h-full mx-2 flex flex-col justify-between
@@ -24,15 +28,27 @@ const CourseCard = ({ title, description, color, id }) => {
           
           <div className="space-y-6 relative z-10">
             <div className="space-y-4">
-              <h3 className="text-white font-bold text-2xl tracking-wide leading-tight">
+              <h3 
+                className="text-white font-bold text-2xl tracking-wide leading-tight"
+                data-aos="fade-right"
+                data-aos-delay="100"
+              >
                 {title}
               </h3>
-              <p className="text-white/90 text-base leading-relaxed">
+              <p 
+                className="text-white/90 text-base leading-relaxed"
+                data-aos="fade-right"
+                data-aos-delay="200"
+              >
                 {description}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-4">
+            <div 
+              className="flex flex-wrap gap-4 mt-4"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
               <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-xl">
                 <BookOpen className="w-4 h-4 text-white" />
                 <span className="text-white text-sm">12 bài học</span>
@@ -48,7 +64,11 @@ const CourseCard = ({ title, description, color, id }) => {
             </div>
           </div>
           
-          <div className="mt-8 flex items-center justify-between relative z-10">
+          <div 
+            className="mt-8 flex items-center justify-between relative z-10"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <motion.div 
               className="bg-white hover:bg-white/90 px-6 py-3 rounded-2xl group transition-all duration-300"
               whileHover={{ scale: 1.05 }}
@@ -145,7 +165,15 @@ const CourseCarousel = () => {
       if (container) {
         setContainerWidth(container.offsetWidth);
       }
+      AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true,
+        offset: 50
+      });
+      AOS.refresh();
     };
+    
 
     handleResize();
     window.addEventListener('resize', handleResize);
@@ -204,7 +232,10 @@ const CourseCarousel = () => {
   const slideWidth = containerWidth / visibleCount;
 
   return (
-    <div className="w-full scale-90 max-w-[1536px] mx-auto px-6 py-16 mt-16">
+    <div 
+      className="w-full scale-90 max-w-[1536px] mx-auto px-6 py-16 mt-16"
+      data-aos="fade-up"
+    >
       <div className="relative">
         <motion.button
           whileHover={{ scale: 1.1 }}
@@ -215,7 +246,8 @@ const CourseCarousel = () => {
           ${canScrollLeft ? 'bg-white/90 hover:bg-white cursor-pointer scale-95' : 'bg-gray-100 cursor-not-allowed'}
           p-3 md:p-5 rounded-2xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform-gpu
           backdrop-blur-sm border border-gray-100 transition-all duration-300
-          md:block hidden`} // Hide on mobile
+          md:block hidden`}
+          data-aos="fade-right"
         >
           <ChevronLeft size={28} className={canScrollLeft ? 'text-gray-700' : 'text-gray-400'} />
         </motion.button>
@@ -270,7 +302,8 @@ const CourseCarousel = () => {
           ${canScrollRight ? 'bg-white/90 hover:bg-white cursor-pointer' : 'bg-gray-100 cursor-not-allowed'}
           p-3 md:p-5 rounded-2xl shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transform-gpu
           backdrop-blur-sm border border-gray-100 transition-all duration-300
-          md:block hidden`} // Hide on mobile
+          md:block hidden`}
+          data-aos="fade-left"
         >
           <ChevronRight size={28} className={canScrollRight ? 'text-gray-700' : 'text-gray-400'} />
         </motion.button>

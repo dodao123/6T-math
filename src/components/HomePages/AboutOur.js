@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function AboutOur() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false, // Changed to false to allow repeat animations
+      mirror: true  // Added to enable animations when scrolling up
+    });
+  }, []);
+
   const data = [
     {
       title: 'Triết lý dạy học',
@@ -19,7 +29,7 @@ function AboutOur() {
     {
       title: 'Đội ngũ giáo viên',
       description:
-        'Giáo viên tại CLB đều là các thầy cô tận tâm, nhiệt tình, yêu trẻ, chuyên môn giỏi, có nhiều năm giảng dạy cho các con luyện thi chuyên, luyện thi điều kiện.',
+        'Giáo viên tại CLB đều là các thầy cô tận tâm, nhiệt tình, yêu trẻ, chuyên môn giỏi, có nhiều năm giảng dạy cho các con luyện thi chuyên, luyện thi điều kiện.',
       icon: '👩‍🏫',
       bgColor: 'bg-pink-200',
     },
@@ -32,16 +42,21 @@ function AboutOur() {
     },
   ];
 
+  useEffect(() => {
+    // Refresh AOS on component mount
+    AOS.refresh();
+  }, []);
+
   return (
     <section
-      className="bg-gray-50 py-16 "
+      className="bg-gray-50 py-16"
       style={{
         backgroundImage: `url('https://static.vecteezy.com/system/resources/thumbnails/004/709/149/small/grey-white-abstract-background-geometry-shine-and-layer-element-for-presentation-design-suit-for-business-corporate-institution-party-festive-seminar-and-talks-vector.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="container mx-auto px-12 text-center ">
+      <div className="container mx-auto px-12 text-center">
         {/* Đường kẻ màu vàng */}
         <div className="w-4/5 mx-auto border-b-4 border-yellow-400 mb-8"></div>
 
@@ -50,7 +65,14 @@ function AboutOur() {
         {/* Nội dung */}
         <div className="grid grid-cols-1 w-full md:grid-cols-2 lg:grid-cols-4 gap-8">
           {data.map((item, index) => (
-            <div key={index} className="flex flex-col items-center">
+            <div 
+              key={index} 
+              className="flex flex-col items-center"
+              data-aos="zoom-in"
+              data-aos-delay={index * 100}
+              data-aos-duration="800"
+              data-aos-offset="200"
+            >
               {/* Icon */}
               <div
                 className={`w-24 h-24 flex items-center justify-center rounded-full ${item.bgColor}`}
