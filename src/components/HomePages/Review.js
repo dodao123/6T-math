@@ -14,14 +14,14 @@ const Review = () => {
 
   return (
     <section
-      className="bg-sky-50 py-4 md:py-10 relative overflow-hidden"
+      className="bg-sky-50 py-4 md:py-10 relative overflow-hidden w-full"
       style={{
         backgroundImage: `url('https://png.pngtree.com/thumb_back/fh260/background/20210326/pngtree-light-blue-cute-striped-baby-blue-background-image_594858.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="container scale-90 mx-auto px-4 max-w-9xl">
+      <div className="container mx-auto px-4 max-w-7xl">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6 md:space-y-8" data-aos="fade-right">

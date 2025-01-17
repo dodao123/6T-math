@@ -12,7 +12,7 @@ import CourseDetail from './Pages/CourseDetail';
 function App() {
     return (
         <Router>
-            <div className="App">
+            <div className="App overflow-x-hidden">
                 <Header/>
                 <ContactIcons />
                 <Routes>

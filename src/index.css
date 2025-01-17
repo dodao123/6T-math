@@ -1,4 +1,22 @@
-   /* math-clb/src/index.css */
-   @tailwind base;
-   @tailwind components;
-   @tailwind utilities;
+/* math-clb/src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add these global styles */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+/* Rest of your existing styles */

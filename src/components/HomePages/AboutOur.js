@@ -49,14 +49,14 @@ function AboutOur() {
 
   return (
     <section
-      className="bg-gray-50 py-16"
+      className="bg-gray-50 w-full py-16 overflow-hidden"
       style={{
         backgroundImage: `url('https://static.vecteezy.com/system/resources/thumbnails/004/709/149/small/grey-white-abstract-background-geometry-shine-and-layer-element-for-presentation-design-suit-for-business-corporate-institution-party-festive-seminar-and-talks-vector.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}
     >
-      <div className="container mx-auto px-12 text-center">
+      <div className="container mx-auto px-4 md:px-12 text-center max-w-7xl">
         {/* Đường kẻ màu vàng */}
         <div className="w-4/5 mx-auto border-b-4 border-yellow-400 mb-8"></div>
 
