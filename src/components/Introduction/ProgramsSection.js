@@ -31,7 +31,7 @@ const ManifestationsSection = () => {
     },
     {
       year: "2023",
-      title: "Câu Lạc Bộ 6T MATH",
+      title: "Câu Lạc Bộ Tư Duy 6T",
       description: "Hiện thực hóa ước mơ về một môi trường học tập toàn diện",
       icon: Star
     }
@@ -115,14 +115,14 @@ const ManifestationsSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7 }}
             >
-              Những ngày tháng gắn bó với nghề giáo, tôi đã chứng kiến biết bao câu chuyện về sự trưởng thành, những giấc mơ được vun đắp, và cả những nỗ lực bền bỉ của từng học trò mà tôi may mắn được đồng hành. Ngược dòng ký ức trở về năm 2007, khi tôi bắt đầu hành trình dạy Toán với niềm đam mê và khát khao đơn giản là giúp các em hiểu bài, làm được bài, và tìm thấy niềm vui trong môn học tưởng chừng khô khan này. Ban đầu, chỉ là những buổi dạy gia sư nhỏ lẻ, từng buổi tôi dành trọn tâm huyết để kèm cặp từng học sinh. Thời gian trôi qua, niềm tin yêu của các bậc phụ huynh đã trở thành động lực lớn lao, và chính họ đã đề nghị lập nên một nhóm học sinh để tôi có thể giảng dạy hiệu quả hơn. </motion.p>
+              Những ngày tháng gắn bó với nghề giáo,chúng tôi đã chứng kiến biết bao câu chuyện về sự trưởng thành, những giấc mơ được vun đắp, và cả những nỗ lực bền bỉ của từng học trò mà chúng tôi may mắn được đồng hành. Chúng tôi bắt đầu hành trình dạy Toán với niềm đam mê và khát khao đơn giản là giúp các em hiểu bài, làm được bài, và tìm thấy niềm vui trong môn học tưởng chừng khô khan này. Ban đầu, chỉ là những buổi dạy gia sư nhỏ lẻ, từng buổi tôi dành trọn tâm huyết để kèm cặp từng học sinh. Thời gian trôi qua, niềm tin yêu của các bậc phụ huynh đã trở thành động lực lớn lao, và chính họ đã đề nghị lập nên một nhóm học sinh để chúng tôi có thể giảng dạy hiệu quả hơn. </motion.p>
             <motion.p
               className="text-lg leading-relaxed text-gray-700"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
             >
-              Câu lạc bộ 6T MATH ra đời từ những điều giản dị như thế. Nhưng với tôi, nó không chỉ là một lớp học. Đó là nơi tôi đặt vào tất cả những hoài bão lớn lao nhất của mình. Tôi luôn tin rằng Toán học không chỉ dừng lại ở những con số hay phép tính. Toán học là công cụ để các con rèn luyện tư duy, học cách giải quyết vấn đề, và tìm ra câu trả lời cho những câu hỏi phức tạp của cuộc sống. Câu lạc bộ được thành lập không chỉ để các con làm tốt hơn trong môn học này, mà còn để truyền cảm hứng, khơi dậy khả năng sáng tạo và tiềm năng mà mỗi đứa trẻ đều sở hữu.
+              Câu lạc bộ Tư Duy 6T ra đời từ những điều giản dị như thế. Nhưng với tôi, nó không chỉ là một lớp học. Đó là nơi tôi đặt vào tất cả những hoài bão lớn lao nhất của mình. Tôi luôn tin rằng Toán học không chỉ dừng lại ở những con số hay phép tính. Toán học là công cụ để các con rèn luyện tư duy, học cách giải quyết vấn đề, và tìm ra câu trả lời cho những câu hỏi phức tạp của cuộc sống. Câu lạc bộ được thành lập không chỉ để các con làm tốt hơn trong môn học này, mà còn để truyền cảm hứng, khơi dậy khả năng sáng tạo và tiềm năng mà mỗi đứa trẻ đều sở hữu.
             </motion.p>
             <motion.p
               className="text-lg leading-relaxed text-gray-700"
@@ -130,7 +130,7 @@ const ManifestationsSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
             >
-            Tôi khao khát thấy các con không chỉ hiểu Toán, mà còn học được cách làm chủ tư duy, tự tin đối mặt với những thử thách của thời đại mới – nơi tư duy công nghệ, tư duy tài chính và kỹ năng giải quyết vấn đề là những hành trang không thể thiếu. Với 6T MATH, tôi mong rằng các con sẽ nhìn thấy tương lai của mình rộng mở, không bị giới hạn bởi những rào cản của kiến thức hay tư duy cũ kỹ.  
+            Tôi khao khát thấy các con không chỉ hiểu Toán, mà còn học được cách làm chủ tư duy, tự tin đối mặt với những thử thách của thời đại mới – nơi tư duy công nghệ, tư duy tài chính và kỹ năng giải quyết vấn đề là những hành trang không thể thiếu. Với CLB Tư Duy 6T, tôi mong rằng các con sẽ nhìn thấy tương lai của mình rộng mở, không bị giới hạn bởi những rào cản của kiến thức hay tư duy cũ kỹ.  
             Những năm qua, mỗi nụ cười khi các con giải được bài toán khó, mỗi ánh mắt sáng ngời vì nhận ra điều mới lạ, và cả những lời cảm ơn từ phụ huynh đều là nguồn động viên lớn lao giúp tôi thêm vững tin trên con đường mình đã chọn
             </motion.p>
           </div>

@@ -10,6 +10,7 @@ import  Contact  from './Pages/Contact';
 import CourseDetail from './Pages/CourseDetail';
 
 function App() {
+    document.title = '6T MATH';
     return (
         <Router>
             <div className="App overflow-x-hidden">

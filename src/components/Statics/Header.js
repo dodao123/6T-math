@@ -75,7 +75,7 @@ const Header = () => {
               <div className="flex flex-col">
                 <h1 className="text-3xl font-bold">
                   <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-transparent bg-clip-text">
-                    6T Math CLUB
+                    CLB TƯ DUY 6T
                   </span>
                 </h1>
                 <p className="text-sm text-gray-600 font-medium">Khơi nguồn tri thức</p>

@@ -8,7 +8,7 @@ const HeroSection = ({ scrollToNextSection }) => {
   
   const heroContent = [
     {
-      title: "Câu Lạc Bộ 6T MATH",
+      title: "Câu Lạc Bộ Tư Duy 6T",
       subtitle: "Khám phá tiềm năng - Chinh phục đỉnh cao",
       image: "/api/placeholder/1200/800"
     },

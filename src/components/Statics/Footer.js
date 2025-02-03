@@ -22,14 +22,15 @@ const Footer = () => {
               <div className="flex items-start space-x-3 group">
                 <MapPin className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div className="text-gray-600">
-                  <p>CS1: Xóm Chùa - Hòa Xá - Ứng Hòa - Hà Nội</p>
-                  <p>CS2: 123 Đường Học Tập - Quận Mới - Hà Nội</p>
+                <p>CS1: Nhà 35 - Thượng Dài - Hòa Xá - Ứng Hòa - Hà Nội</p>
+                  
+                
                 </div>
               </div>
               <div className="flex items-center space-x-3 group">
                 <Phone className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
                 <p className="text-gray-600 hover:text-blue-700 cursor-pointer">
-                  0397225769 - 0973748523
+                  0397225769
                 </p>
               </div>
               <div className="flex items-center space-x-3 group">
